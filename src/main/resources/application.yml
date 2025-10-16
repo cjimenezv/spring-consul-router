@@ -1,0 +1,25 @@
+server:
+  port: 8081   # Puerto fijo al que Krakend siempre va a pegar
+
+spring:
+  application:
+    name: spring-consul-router   # Nombre del servicio que Krakend consumirá
+  cloud:
+    consul:
+      host: ${CONSUL_HOST_IP}            # O la IP donde esté corriendo Consul
+      port: ${CONSUL_HOST_PORT}
+      discovery:
+        enabled: true            # Habilita que el servicio se registre en Consul
+    loadbalancer:
+      retry:
+        enabled: true            # Opcional: habilita reintentos si un backend falla
+
+# Actuator para health check (opcional)
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    consul:
+      enabled: true
