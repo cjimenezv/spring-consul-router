@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringConsulRouterApplication {
 
 	public static void main(String[] args) {
+		System.out.println("version 20-Oct-2025");
 		SpringApplication.run(SpringConsulRouterApplication.class, args);
 	}
 	
